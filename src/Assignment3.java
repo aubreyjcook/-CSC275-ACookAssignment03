@@ -105,22 +105,21 @@ public class Assignment3 {
 	}
 
 	private void removeItem(ArrayList<Item> cargohold) {
-		/*
 		System.out.println("Enter the name of the item to be removed.");
 		String userInput = input.nextLine();
 		
-		for(int i = 0; i < cargoHold.length; i++) {
-			if(cargoHold[i].name.equals(userInput)) {
-				cargoHold[i].name = "none";
-				cargoHold[i].weight = "none";
-				cargoHold[i].value = "none";
-				cargoHold[i].durability = "none";
+		for(int i = 0; i < cargohold.size(); i++) {
+			if(cargohold.get(i).name.equals(userInput)) {
+				cargohold.get(i).name = "none";
+				cargohold.get(i).weight = "none";
+				cargohold.get(i).value = "none";
+				cargohold.get(i).durability = "none";
 				System.out.println("Item removed.");
 				break;
-			} else if (i == cargoHold.length - 1) {
-				System.out.println("That item is not in the cargoHold.");
+			} else if (i == cargohold.size() - 1) {
+				System.out.println("That item is not in the cargohold.");
 			}
-		}*/
+		}
 		return;
 	}
 
@@ -197,17 +196,34 @@ public class Assignment3 {
 	}
 
 	private void displayItems(ArrayList<Item> cargohold) {
-		
-		
-		//simple output
-		/*for(int i = 0; i < cargohold.size(); i++) {
-			System.out.println(cargohold.get(i).name);
-			System.out.println(cargohold.get(i).weight);
-			System.out.println(cargohold.get(i).value);
-			System.out.println(cargohold.get(i).durability);
-			System.out.println(cargohold.get(i).ID);
-		
+		while (true) {
+			// Give the user a list of their options
+			System.out.println("1: Display a specific item in the cargohold");
+			System.out.println("2: Display all items in the cargohold");
+
+			// Get the user input
+			int userChoice = input.nextInt();
+			input.nextLine();
+			
+			switch (userChoice) {
+				case 1:
+					//simple output
+					for(int i = 0; i < cargohold.size(); i++) {
+						System.out.println(cargohold.get(i).name);
+						System.out.println(cargohold.get(i).weight);
+						System.out.println(cargohold.get(i).value);
+						System.out.println(cargohold.get(i).durability);
+						System.out.println(cargohold.get(i).ID);
+					
+					}
+					break;
+				case 2:
+					
+					break;
+				default:
+					System.out.println("Invalid value. Choose a number 1-2 only.");
+					break;
+			}
 		}
-		*/
 	}
 }
