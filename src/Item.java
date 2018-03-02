@@ -1,40 +1,40 @@
 public class Item {
-	String name = "none";
-	String weight = "none";
-	String value = "none";
-	String durability = "none";
-	String ID = "none";
+	static String name = "none";
+	static String weight = "none";
+	static String value = "none";
+	static String durability = "none";
+	static String ID = "none";
 			
 	Item(){}
 	
 	//constructor
 	public Item(String itemName, String itemWeight, String itemValue, String itemDurability, String itemID) {
-		this.name = itemName;
-		this.weight = itemWeight;
-		this.value = itemValue;
-		this.durability = itemDurability;
-		this.ID = itemID;
+		Item.name = itemName;
+		Item.weight = itemWeight;
+		Item.value = itemValue;
+		Item.durability = itemDurability;
+		Item.ID = itemID;
 	}
 	
 	//setter methods
 	public void setItemName(String newItemName) {
-		this.name = newItemName;
+		Item.name = newItemName;
 	}
 	
 	public void setItemWeight(String newItemWeight) {
-		this.weight = newItemWeight;
+		Item.weight = newItemWeight;
 	}
 	
 	public void setItemValue(String newItemValue) {
-		this.value = newItemValue;
+		Item.value = newItemValue;
 	}
 	
 	public void setItemDurability(String newItemDurability) {
-		this.durability = newItemDurability;
+		Item.durability = newItemDurability;
 	}
 	
 	public void setItemID(String newItemID) {
-		this.ID = newItemID;
+		Item.ID = newItemID;
 	}
 	
 	//getter methods
@@ -58,4 +58,19 @@ public class Item {
 		return ID;
 	}
 	
+	
+	//comparison object
+	/*
+	public class ComparableItem extends Item
+	implements Comparable<ComparableItem> {
+		public ComparableItem(String itemName, String itemWeight, String itemValue, String itemDurability, String itemID) {
+			super(name, weight, value, durability, ID);
+		}
+	}
+	
+	@Override
+	public int int compareTo(ComparableItem o) {
+		
+	}
+	*/
 }

@@ -81,49 +81,52 @@ public class Assignment3 {
 		
 		cargohold.set(index - 1, tempItem);
 		System.out.println("Item added successfully");
-		
-		/*
-		System.out.println("Enter the item name below.");
-		String itemName = input.nextLine();
-		
-		System.out.println("Enter the item weight below.");
-		String itemWeight = input.nextLine();
-		
-		System.out.println("Enter the item value below.");
-		String itemValue = input.nextLine();
-		
-		System.out.println("Enter the item durability below.");
-		String itemDurability = input.nextLine();
-		
-		cargohold.add(new Item(itemName, itemWeight, itemValue, itemDurability));
-		
-		//System.out.println(cargoHold[j].name + " has been added successfully.");
-		
-		System.out.println("The cargoHold is full. You need to remove an item to add a new one.");
 		return;
-		*/
 	}
 
 	private void removeItem(ArrayList<Item> cargohold) {
-		System.out.println("Enter the name of the item to be removed.");
-		String userInput = input.nextLine();
+		int index = cargohold.size();
 		
-		for(int i = 0; i < cargohold.size(); i++) {
-			if(cargohold.get(i).name.equals(userInput)) {
-				cargohold.get(i).name = "none";
-				cargohold.get(i).weight = "none";
-				cargohold.get(i).value = "none";
-				cargohold.get(i).durability = "none";
-				System.out.println("Item removed.");
-				break;
-			} else if (i == cargohold.size() - 1) {
-				System.out.println("That item is not in the cargohold.");
+		if(index == 0) {
+			System.out.println("The Cargohold has no items to remove!");
+			return;
+		} else {
+			
+			System.out.println("Enter the name of the item to be removed.");
+			String userInput = input.nextLine();
+			
+			for(int i = 0; i < cargohold.size(); i++) {
+				cargohold.get(i);
+				if(Item.name.equals(userInput)) {
+					cargohold.get(i);
+					Item.name = "none";
+					cargohold.get(i);
+					Item.weight = "none";
+					cargohold.get(i);
+					Item.value = "none";
+					cargohold.get(i);
+					Item.durability = "none";
+					cargohold.get(i);
+					Item.ID = "none";
+					System.out.println("Item removed.");
+					break;
+				} else if (i == cargohold.size() - 1) {
+					System.out.println("That item is not in the cargohold.");
+				}
 			}
+			return;
 		}
-		return;
 	}
 
 	private void sortItems(ArrayList<Item> cargohold) {
+		int index = cargohold.size();
+		
+		if(index <= 1) {
+			System.out.println("The Cargohold has too few items to sort.");
+			return;
+		} else {
+			
+		}
 		
 		/*
 		//checking for null values in the array
@@ -198,8 +201,8 @@ public class Assignment3 {
 	private void displayItems(ArrayList<Item> cargohold) {
 		while (true) {
 			// Give the user a list of their options
-			System.out.println("1: Display a specific item in the cargohold");
-			System.out.println("2: Display all items in the cargohold");
+			System.out.println("1: Display all items in the cargohold");
+			System.out.println("2: Display a specific item in the cargohold");
 
 			// Get the user input
 			int userChoice = input.nextInt();
@@ -209,17 +212,22 @@ public class Assignment3 {
 				case 1:
 					//simple output
 					for(int i = 0; i < cargohold.size(); i++) {
-						System.out.println(cargohold.get(i).name);
-						System.out.println(cargohold.get(i).weight);
-						System.out.println(cargohold.get(i).value);
-						System.out.println(cargohold.get(i).durability);
-						System.out.println(cargohold.get(i).ID);
+						cargohold.get(i);
+						System.out.println(Item.name);
+						cargohold.get(i);
+						System.out.println(Item.weight);
+						cargohold.get(i);
+						System.out.println(Item.value);
+						cargohold.get(i);
+						System.out.println(Item.durability);
+						cargohold.get(i);
+						System.out.println(Item.ID);
 					
 					}
-					break;
+					return;
 				case 2:
 					
-					break;
+					return;
 				default:
 					System.out.println("Invalid value. Choose a number 1-2 only.");
 					break;
