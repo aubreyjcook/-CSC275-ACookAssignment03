@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Assignment3 {
 	Scanner input = new Scanner(System.in);
@@ -12,12 +13,8 @@ public class Assignment3 {
 	// This will act as our program switchboard
 	public Assignment3() {
 		
-		Item[] cargoHold = new Item[10];
-		for(int i = 0; i < cargoHold.length; i++) {
-			cargoHold[i] = new Item();
-			cargoHold[i].ID = Integer.toString(i + 1);
-		}
-
+		ArrayList<Item> cargoHold = new ArrayList<Item>();
+		
 		System.out.println("Welcome to the BlackStar Cargo Hold interface.");
 		System.out.println("Please select a number from the options below");
 		System.out.println("");
@@ -62,31 +59,53 @@ public class Assignment3 {
 
 	}
 
-	private void addItem(Item cargoHold[]) {
-		for (int j = 0; j < cargoHold.length; j++) {
-			if (cargoHold[j].name.equals("none")) {
-				System.out.println("Enter the item name below.");
-				String userInput = input.nextLine();
-				cargoHold[j].name = userInput;
-				System.out.println("Enter the item weight below.");
-				userInput = input.nextLine();
-				cargoHold[j].weight = userInput;
-				System.out.println("Enter the item value below.");
-				userInput = input.nextLine();
-				cargoHold[j].value = userInput;
-				System.out.println("Enter the item durability below.");
-				userInput = input.nextLine();
-				cargoHold[j].durability = userInput;
-				System.out.println(cargoHold[j].name + " has been added successfully.");
-				break;
-			} else if (j == cargoHold.length - 1) {
-				System.out.println("The cargoHold is full. You need to remove an item to add a new one.");
-			}
-		}
+	private void addItem(ArrayList<Item> cargohold) {
+		cargohold.add(new Item());
+		int index = cargohold.size(); 
+		Item tempItem = new Item();
+		System.out.println("Enter the Item's name");
+		String userInput = input.nextLine();
+		tempItem.setItemName(userInput);
+		System.out.println("Enter the Item's weight");
+		userInput = input.nextLine();
+		tempItem.setItemWeight(userInput);
+		System.out.println("Enter the Item's value");
+		userInput = input.nextLine();
+		tempItem.setItemValue(userInput);
+		System.out.println("Enter the Item's durability");
+		userInput = input.nextLine();
+		tempItem.setItemDurability(userInput);
+		System.out.println("Enter the Item's ID");
+		userInput = input.nextLine();
+		tempItem.setItemID(userInput);
+		
+		cargohold.set(index - 1, tempItem);
+		System.out.println("Item added successfully");
+		
+		/*
+		System.out.println("Enter the item name below.");
+		String itemName = input.nextLine();
+		
+		System.out.println("Enter the item weight below.");
+		String itemWeight = input.nextLine();
+		
+		System.out.println("Enter the item value below.");
+		String itemValue = input.nextLine();
+		
+		System.out.println("Enter the item durability below.");
+		String itemDurability = input.nextLine();
+		
+		cargohold.add(new Item(itemName, itemWeight, itemValue, itemDurability));
+		
+		//System.out.println(cargoHold[j].name + " has been added successfully.");
+		
+		System.out.println("The cargoHold is full. You need to remove an item to add a new one.");
 		return;
+		*/
 	}
 
-	private void removeItem(Item cargoHold[]) {
+	private void removeItem(ArrayList<Item> cargohold) {
+		/*
 		System.out.println("Enter the name of the item to be removed.");
 		String userInput = input.nextLine();
 		
@@ -101,11 +120,13 @@ public class Assignment3 {
 			} else if (i == cargoHold.length - 1) {
 				System.out.println("That item is not in the cargoHold.");
 			}
-		}
+		}*/
 		return;
 	}
 
-	private void sortItems(Item cargoHold[]) {
+	private void sortItems(ArrayList<Item> cargohold) {
+		
+		/*
 		//checking for null values in the array
 		int nullCounter = 0;
 		
@@ -152,11 +173,14 @@ public class Assignment3 {
 				}
 			}
 		}
-		System.out.println("cargoHold sorted.");
+		System.out.println("cargoHold sorted.");*/
+		
 		return;
 	}
 
-	private void searchItems(Item cargoHold[]) {
+	private void searchItems(ArrayList<Item> cargohold) {
+		
+		/*
 		System.out.println("Enter the item you wish to search for.");
 		String userInput = input.nextLine();
 		
@@ -169,48 +193,21 @@ public class Assignment3 {
 			}
 		}
 		System.out.println("The item was not found in the cargo hold.");
+		*/
 	}
 
-	private void displayItems(Item cargoHold[]) {
-		// TODO: Display only the unique items along with a count of any duplicates
-		//
-		// For example it should say
-		// Food - 2
-		// Water - 3
-		// Ammunition - 5
-		/*System.out.println(Arrays.asList(cargoHold));*/
+	private void displayItems(ArrayList<Item> cargohold) {
 		
-		int count = 1;
 		
-		for(int i = 0; i < cargoHold.length; i++) {
-			if(cargoHold[i].name.equals("none")) {
-				count++;
-			}
+		//simple output
+		/*for(int i = 0; i < cargohold.size(); i++) {
+			System.out.println(cargohold.get(i).name);
+			System.out.println(cargohold.get(i).weight);
+			System.out.println(cargohold.get(i).value);
+			System.out.println(cargohold.get(i).durability);
+			System.out.println(cargohold.get(i).ID);
+		
 		}
-		
-		Item[] itemsFound = new Item[10];
-		
-		if(count > 0) {
-			System.out.println("There are " + count + " empty spaces in the cargoHold.");
-		}
-		
-		for (int i = 0; i < cargoHold.length; i++) {
-			if (!cargoHold[i].name.equals("none") && !(Arrays.asList(itemsFound).contains(cargoHold[i]))) {
-				
-				count = Collections.frequency(Arrays.asList(cargoHold), cargoHold[i].name);					
-				System.out.println("There are " + count + " " + cargoHold[i].name + " items in the cargoHold.");
-				itemsFound[i] = cargoHold[i];
-				
-			}
-		}
-		/* simple output
-		for(int i = 0; i<cargoHold.length; i++) {
-			System.out.println(cargoHold[i].name);
-			System.out.println(cargoHold[i].weight);
-			System.out.println(cargoHold[i].value);
-			System.out.println(cargoHold[i].durability);
-			System.out.println(cargoHold[i].ID);
-			
-		}*/
+		*/
 	}
 }
