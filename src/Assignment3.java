@@ -1,6 +1,9 @@
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
+
+import Item.ComparableItem;
+
 import java.util.ArrayList;
 
 public class Assignment3 {
@@ -13,7 +16,7 @@ public class Assignment3 {
 	// This will act as our program switchboard
 	public Assignment3() {
 		
-		ArrayList<Item> cargoHold = new ArrayList<Item>();
+		ArrayList<Item> cargohold = new ArrayList<Item>();
 		
 		System.out.println("Welcome to the BlackStar Cargo Hold interface.");
 		System.out.println("Please select a number from the options below");
@@ -34,19 +37,19 @@ public class Assignment3 {
 			
 			switch (userChoice) {
 				case 1:
-					addItem(cargoHold);
+					addItem(cargohold);
 					break;
 				case 2:
-					removeItem(cargoHold);
+					removeItem(cargohold);
 					break;
 				case 3:
-					sortItems(cargoHold);
+					sortItems(cargohold);
 					break;
 				case 4:
-					searchItems(cargoHold);
+					searchItems(cargohold);
 					break;
 				case 5:
-					displayItems(cargoHold);
+					displayItems(cargohold);
 					break;
 				case 0:
 					System.out.println("Thank you for using the BlackStar Cargo Hold interface. See you again soon!");
@@ -88,7 +91,7 @@ public class Assignment3 {
 		int index = cargohold.size();
 		
 		if(index == 0) {
-			System.out.println("The Cargohold has no items to remove!");
+			System.out.println("The cargohold has no items to remove!");
 			return;
 		} else {
 			
@@ -122,80 +125,49 @@ public class Assignment3 {
 		int index = cargohold.size();
 		
 		if(index <= 1) {
-			System.out.println("The Cargohold has too few items to sort.");
+			System.out.println("The cargohold has too few items to sort.");
 			return;
 		} else {
-			
+			System.out.println(compareTo(cargohold.get(1), cargohold.get(2)));
 		}
-		
 		/*
-		//checking for null values in the array
-		int nullCounter = 0;
-		
-		for(int i= 0; i < cargoHold.length; i++) {
-			if(cargoHold[i].name.equals("none")) {
-				nullCounter++;					
-			}
-		}
-		
-		//moves all null values to the end of the array
-		while(nullCounter > 0) {
-			for(int i = 0; i < cargoHold.length; i++) {
-				if(cargoHold[i].name.equals("none")) {
-					for (int j = (i + 1); j < cargoHold.length; j++) {
-						cargoHold[j - 1] = cargoHold[j];
-					}
-					cargoHold[cargoHold.length-1].name.equals("none");
-					break;
-				}
-			}
-			nullCounter--;
-		}
-		
-		
-		//sorting after moving null values to the end of the array
-		for(int x = 0; x < cargoHold.length; x++) { //this for loop repeats the sorting process according to the length of the array to enhance sorting accuracy
-			for (int i = 0; i < cargoHold.length-1; i++) {
+		for(int x = 0; x < 5; x++) { //this for loop repeats the sorting process according to the length of the array to enhance sorting accuracy
+			for (int i = 0; i < cargohold.size(); i++) {
 				int minimum = i;
 				//System.out.println(minimum);
-				for (int j = i + 1; j < cargoHold.length; j++) {
+				for (int j = i + 1; j < cargohold.length; j++) {
 					//System.out.println(j);
-					//System.out.println(cargoHold[i].compareTo(cargoHold[minimum]));
-					if(!cargoHold[j].name.equals("none")) {
-						if(cargoHold[j].name.compareTo(cargoHold[minimum].name) < 0) {
+					//System.out.println(cargohold[i].compareTo(cargohold[minimum]));
+					if(!cargohold[j].name.equals("none")) {
+						if(cargohold[j].name.compareTo(cargohold[minimum].name) < 0) {
 							minimum = j;
 							//Debug Note: Outputs array reassignments in real time. 
-							//System.out.println("Swapping " + cargoHold[i] + " with " + cargoHold[minimum]);
-							//System.out.println(Arrays.asList(cargoHold));
-							Item transfer = cargoHold[i];
-							cargoHold[i] = cargoHold[minimum];
-							cargoHold[j] = transfer;
+							//System.out.println("Swapping " + cargohold[i] + " with " + cargohold[minimum]);
+							//System.out.println(Arrays.asList(cargohold));
+							Item transfer = cargohold[i];
+							cargohold[i] = cargohold[minimum];
+							cargohold[j] = transfer;
 						}
 					}
 				}
 			}
 		}
-		System.out.println("cargoHold sorted.");*/
+		System.out.println("cargohold sorted.");*/
 		
 		return;
 	}
 
 	private void searchItems(ArrayList<Item> cargohold) {
-		
-		/*
-		System.out.println("Enter the item you wish to search for.");
+		System.out.println("Enter the name of the item you wish to search for.");
 		String userInput = input.nextLine();
 		
-		for(int i = 0; i < cargoHold.length; i++) {
-			if(cargoHold[i].name.equals("none")) {
-				continue;
-			} else if (userInput.equals(cargoHold[i].name)) {
+		for(int i = 0; i < cargohold.size(); i++) {
+			if (userInput.equals(cargohold.get(i).name)) {
 				System.out.println("The item was found at section number " + (i + 1));
 				return;
 			}
 		}
 		System.out.println("The item was not found in the cargo hold.");
-		*/
 	}
 
 	private void displayItems(ArrayList<Item> cargohold) {

@@ -60,7 +60,7 @@ public class Item {
 	
 	
 	//comparison object
-	/*
+	
 	public class ComparableItem extends Item
 	implements Comparable<ComparableItem> {
 		public ComparableItem(String itemName, String itemWeight, String itemValue, String itemDurability, String itemID) {
@@ -68,9 +68,8 @@ public class Item {
 		}
 	}
 	
-	@Override
-	public int int compareTo(ComparableItem o) {
-		
+	public int compareTo(ComparableItem o) {
+		return this.getItemName().compareTo(o.getItemName());
 	}
-	*/
+	
 }
